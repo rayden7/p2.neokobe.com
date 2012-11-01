@@ -479,51 +479,22 @@ class users_controller extends base_controller {
                                              JOIN users u ON u.user_id = f.user_id_followed
                                    WHERE     f.user_id = ".DB::instance(DB_NAME)->sanitize($result['user_id']);
 
-            //echo $following_query;
-
             $following_result = DB::instance(DB_NAME)->select_rows($following_query);
 
             if (!is_null($following_result)) {
-
-                //var_dump($following_result);
-
                 foreach ($following_result as $key=>$val) {
                     $user_id_followed = $following_result[$key]['user_id_followed'];
                     $username_followed = $following_result[$key]['username_followed'];
                     $_SESSION['user']['following_users'][$user_id_followed] = $username_followed;
                 }
-
-//
-//                # set a message letting them know the name of the user they are following
-//                $q = "
-//              SELECT     u.first_name,
-//                         u.last_name,
-//                         u.username
-//              FROM       users u
-//              WHERE      u.user_id = $user_id_followed
-//             ";
-//                $result = DB::instance(DB_NAME)->select_row($q);
-//                if (!is_null($result)) {
-//
-//                    $_SESSION['following_notice'] = "You are now following <b>"
-//                        .htmlspecialchars($result['first_name'])." "
-//                        .htmlspecialchars($result['last_name'])." (<a href=\"/users/profile/"
-//                        .htmlspecialchars($result['username'])."\">".htmlspecialchars($result['username'])."</a>)</b>.";
-//
-//                    # add the current user to the list of users being followed by the current user
-//                    $_SESSION['user']['following_users'][$user_id_followed] = $result['username'];
-//
-//                }
-
-
             }
 
             // prepare the view for display
             $this->template->content = View::instance('v_users_profile');
             $this->template->title = "Welcome, ".$result['first_name'] . " ".$result['last_name'] . "!";
             $client_files = Array(
-                "../views/css/main.css",
-                "../views/js/modernizr-2.6.1.min.js",
+                "/views/css/main.css",
+                "/views/js/modernizr-2.6.1.min.js",
             );
             $this->template->client_files = Utils::load_client_files($client_files);
 
@@ -554,5 +525,87 @@ class users_controller extends base_controller {
             echo $this->template;
         }
     }
+
+
+
+
+    public function all() {
+
+        // only show the profile page for logged-in users and those that have the correct session data (inluding their user_id)
+        if (!$this->user || !isset($_SESSION['user']['user_id'])) {
+            $this->template->content = View::instance('v_users_login');
+            $this->template->title = "Members Only";
+            $client_files = Array(
+                "/views/css/main.css",
+                "/views/js/modernizr-2.6.1.min.js",
+            );
+            $this->template->client_files = Utils::load_client_files($client_files);
+            $this->template->content->error_title = "Members Only";
+            $_SESSION['users']['errors'][] = "Please use the login form at the top of the page.";
+            echo $this->template;
+            die();
+        }
+
+        # Get all the users and how many posts they have submitted
+        $q = "
+              SELECT     u.user_id,
+                         u.first_name,
+                         u.last_name,
+                         u.username,
+                         CASE
+                             WHEN
+                                 (SELECT COUNT(*)
+                                  FROM   users_users uu
+                                  WHERE  uu.user_id = ".$_SESSION['user']['user_id']."
+                                         AND uu.user_id_followed = u.user_id
+                                 ) > 0
+                             THEN 1
+                             ELSE 0
+                         END as currentlyFollowing,
+                         (
+                             SELECT     COUNT(*)
+                             FROM       posts p
+                             WHERE      p.user_id = u.user_id
+                         ) AS total_posts
+              FROM       users u
+              WHERE u.user_id != ".$_SESSION['user']['user_id']."
+              ORDER BY total_posts DESC
+             ";
+
+        $all_users = DB::instance(DB_NAME)->select_rows($q);
+
+        if ($all_users != null) {
+
+            // prepare the view for display
+            $this->template->content = View::instance('v_users_all');
+
+            $this->template->title = "All Users";
+            $this->template->content->title = $this->template->title;
+
+            $client_files = Array(
+                "/views/css/main.css",
+                "/views/js/modernizr-2.6.1.min.js",
+            );
+            $this->template->client_files = Utils::load_client_files($client_files);
+
+            $this->template->content->all_users = $all_users;
+
+            echo $this->template;
+        }
+        // could not find a list of all users
+        else {
+            $this->template->content = View::instance('v_users_error');
+            $this->template->title = "No users!";
+            $this->template->content->title_error= $this->template->title;
+            $client_files = Array(
+                "/views/css/main.css",
+                "/views/js/modernizr-2.6.1.min.js",
+            );
+            $_SESSION['users']['errors'][] = "Sorry, the site currently has no users!  Quick, <a href=\"/users/signup\">sign up for a new account</a> yourself!";
+            $this->template->client_files = Utils::load_client_files($client_files);
+            echo $this->template;
+        }
+    }
+
 
 } // end class

@@ -83,11 +83,48 @@ if (isset($_SESSION['user']['username']) && isset($_COOKIE['token'])) {
     <a href="/"><h2>P2 - Twitter Clone</h2></a>
 </div>
 
+<?php
+
+// build out the navigation programmatically so that we can show it at the top and
+// bottom of the page without re-evaluating the logic that determines what links to show
+$navigation = "";
+$navigation .= "<nav>\n";
+$navigation .= "\t<ul class=\"navigation\">\n";
+
+// for logged-in users: show links to a list of all user accounts, and also to their individual profile
+// for non-logged in users: show a link to create a new account, and to the generic profile page (redirects)
+if (isset($_SESSION['user']['username']) && isset($_COOKIE['token'])) {
+    $navigation .= "\t\t<a href=\"/users/all\"><li>All Users</li></a>\n";
+    $navigation .= "\t\t<a href=\"/users/profile/".$_SESSION['user']['username']."\"><li>Profile</li></a>\n";
+} else {
+    $navigation .= "\t\t<a href=\"/users/signup\"><li>New Account</li></a>\n";
+    $navigation .= "\t\t<a href=\"/users/profile\"><li>Profile</li></a>\n";
+}
+
+$navigation .= "\t\t<a href=\"/posts/all\"><li>All Posts</li></a>\n";
+$navigation .= "\t\t<a href=\"/posts/friends\"><li>Friend Posts</li></a>\n";
+$navigation .= "\t\t<a href=\"/posts/mine\"><li>My Posts</li></a>\n";
+$navigation .= "\t\t<a href=\"/posts/add\"><li>New Post</li></a>\n";
+$navigation .= "\t</ul>\n";
+$navigation .= "</nav>\n";
+
+?>
+
+<?=$navigation ?>
+
+<?php
+
+/*
 <nav>
     <ul class="navigation">
 <?php
+// if there is no logged-in user, show the link to create a new account
 if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
     echo "<a href=\"/users/signup\"><li>New Account</li></a>\n";
+}
+// otherwise we have a logged-in user, so show the link to the user list
+else {
+    echo "<a href=\"/users/all\"><li>All Users</li></a>\n";
 }
 ?>
         <a href="/users/profile<?php if (isset($_SESSION['user']['username'])) echo "/".$_SESSION['user']['username'] ?>"><li>Profile</li></a>
@@ -97,6 +134,9 @@ if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
         <a href="/posts/add"><li>New Post</li></a>
     </ul>
 </nav>
+*/
+
+?>
 
 <article>
     <div id="main-content">
@@ -104,11 +144,21 @@ if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
     </div>
 </article>
 
+<?=$navigation ?>
+
+<?php
+
+/*
 <nav>
     <ul class="navigation">
 <?php
+// if there is no logged-in user, show the link to create a new account
 if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
     echo "<a href=\"/users/signup\"><li>New Account</li></a>\n";
+}
+// otherwise we have a logged-in user, so show the link to the user list
+else {
+    echo "<a href=\"/users/all\"><li>All Users</li></a>\n";
 }
 ?>
         <a href="/users/profile<?php if (isset($_SESSION['user']['username'])) echo "/".$_SESSION['user']['username'] ?>"><li>Profile</li></a>
@@ -118,6 +168,9 @@ if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
         <a href="/posts/add"><li>New Post</li></a>
     </ul>
 </nav>
+*/
+
+?>
 
 <footer>
     <h3>&copy; 2012 David Killeffer.  All Rights Reserved.</h3>

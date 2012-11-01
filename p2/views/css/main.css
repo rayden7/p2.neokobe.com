@@ -20,18 +20,32 @@ textarea {
 
 @font-face {
     font-family: 'Futura-Medium';
+    /*
     src: url('../fonts/futura.eot');
     src: url('../fonts/futura.eot?#iefix') format('embedded-opentype'),
     url('../fonts/futura.woff') format('woff'),
     url('../fonts/futura.ttf') format('truetype'),
     url('../fonts/futura.svg#futura') format('svg');
+    */
+
+    src: url('http://neokobe.com/fonts/futura.eot');
+    src: url('http://neokobe.com/fonts/futura.eot?#iefix') format('embedded-opentype'),
+    url('http://neokobe.com/fonts/futura.woff') format('woff'),
+    url('http://neokobe.com/fonts/futura.ttf') format('truetype'),
+    url('http://neokobe.com/fonts/futura.svg#futura') format('svg');
+
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Hei';
+    /*
     src: url('../fonts/Hei.ttf');
     src: local('Hei'), url('../fonts/Hei.ttf') format('truetype');
+    */
+
+    src: url('http://neokobe.com/fonts/Hei.ttf');
+    src: local('Hei'), url('http://neokobe.com/fonts/Hei.ttf') format('truetype');
 }
 
 body {
@@ -40,6 +54,15 @@ body {
     font-family: Futura-Medium, Hei, "Helvetica Neue", "Helvetica Nue", "Helvetica";
     margin: 0;
     padding: 0;
+
+
+    /*
+    rgb(186,195,255) == #bac3ff
+    rgb(250,250,250) == #fafafa
+    rgb(97,158,250)  == #619efa
+    */
+
+    /*
     background-image: linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
     background-image: -o-linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
     background-image: -moz-linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
@@ -54,7 +77,33 @@ body {
         color-stop(1, rgb(97,158,250))
     );
     background-color: rgb(186,195,255);
+    */
+
     background-repeat: no-repeat;
+
+    background: #bac3ff; /* Old browsers */
+    /* background gradient for cross-browser compatibility */
+    background: -moz-linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bac3ff), color-stop(90%, #fafafa), color-stop(100%, #619efa)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -ms-linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* IE10+ */
+    background: -o-linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* Opera11.10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bac3ff', endColorstr='#619efa', GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* W3C */
+    /* border radius for cross-compatibility */
+
+
+    /*
+    tricks for IE9+ background gradient images with rounded borders:
+        ref: http://jjis.me/a/912
+        ref: http://ie.microsoft.com/testdrive/graphics/svggradientbackgroundmaker/default.html
+
+    background: transparent none; / * reset the background, just in case * /
+    filter: ''; / * clear the filter since it's the reason for the border-radius missing * /
+    / * SVG as background image (IE9/Chrome/Safari/Opera) * /
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc5NjgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNCQUMzRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGQUZBRkEiIG9mZnNldD0iMC41Ii8+PHN0b3Agc3RvcC1jb2xvcj0iIzYxOUVGQSIgb2Zmc2V0PSIxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZzk2OCkiIC8+Cjwvc3ZnPg==);
+    */
+
 }
 
 
@@ -153,59 +202,37 @@ div#login {
 
 input.input-text,
 #login-form input.input-text {
-    border: 2px solid #fcc;
-    border: 2px solid #b7b7b7;
-    border: 2px solid #a0a0a0;
     border: 2px solid #747171;
-
     height: 1.5em;
     font-size: 1.6em;
     padding: 2px;
-    color: #ccf;
-    color: #999999; 
-
+    color: #999999;
     padding: 1px 0.75em;
     border-radius: 0.9em;
     -moz-border-radius: 0.9em;
     -webkit-border-radius: 0.9em;
-
     font-family: Futura-Medium, Hei, "Helvetica Neue", "Helvetica Nue", "Helvetica";
 }
 
 .input-text {
     font-color: #ccc;
     width: 150px;
-
     font-family: Futura-Medium, Hei, "Helvetica Neue", "Helvetica Nue", "Helvetica";
 }
 
 .input-textblock {
-
     font-family: Futura-Medium, Hei, "Helvetica Neue", "Helvetica Nue", "Helvetica";
-
-    border: 2px solid #fcc;
-    border: 2px solid #b7b7b7;
-    border: 2px solid #a0a0a0;
     border: 2px solid #747171;
-
     font-size: 1.6em;
-    /*padding: 2px;*/
-    color: #ccf;
     color: #999999;
-
-    margin: 10px auto;
     margin: 5px;
-
+    padding: 1px 0.75em;
     min-height: 200px;
     width: 95%;
-    padding: 1px 0.75em;
-
     border-radius: 0.9em;
     -moz-border-radius: 0.9em;
     -webkit-border-radius: 0.9em;
 }
-
-
 
 div.signup-text span {
     text-align: right;
@@ -237,52 +264,62 @@ div.signup-text {
 }
 
 .btn-submit {
-    border: 1px solid #b7b7b7;
-    border: 2px solid #b7b7b7;
-    border: 2px solid #a0a0a0;
     border: 2px solid #747171;
-
-    -webkit-border-radius: 0.9em;
-    -moz-border-radius: 0.9em;
-    border-radius: 0.9em;
-
     text-shadow: 0 2px 3px rgba(0,0,0,0.3);
     font-weight: bold;
     text-align: center;
-    
     height: 1.5em;
     font-size: 1.6em;
-    padding: 2px;
-    color: #ccf;
-    color: #747171;
-    color: #666;
-    color: #564b4b;
-
+    /*color: #564b4b;*/
+    /*background: #d3d3d3;*/
+    font-color: #564b4b;
     padding: 1px 0.75em;
+
+/*
     border-radius: 0.9em;
     -moz-border-radius: 0.9em;
-    -webkit-border-radius: 0.9em;    
-    
-    background-color: #d3d3d3;
+    -webkit-border-radius: 0.9em;
+    background-color: transparent;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d3d3d3), color-stop(100%, #707070));
     background-image: -webkit-linear-gradient(top, #d3d3d3, #707070);
     background-image: -moz-linear-gradient(top, #d3d3d3, #707070);
     background-image: -ms-linear-gradient(top, #d3d3d3, #707070);
     background-image: -o-linear-gradient(top, #d3d3d3, #707070);
     background-image: linear-gradient(top, #d3d3d3, #707070);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#d3d3d3, endColorstr=#707070);
+*/
+
+    background: #d3d3d3; /* Old browsers */
+    /* background gradient for cross-browser compatibility */
+    background: -moz-linear-gradient(top, #d3d3d3 0%, #707070 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #707070), color-stop(100%, #707070)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #d3d3d3 0%, #707070 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -ms-linear-gradient(top, #d3d3d3 0%, #707070 100%); /* IE10+ */
+    background: -o-linear-gradient(top, #d3d3d3 0%, #707070 100%); /* Opera11.10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#707070', GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, #d3d3d3 0%, #707070 100%); /* W3C */
+    /* border radius for cross-compatibility */
+    border-radius: 0.9em;
+    -moz-border-radius: 0.9em;
+    -webkit-border-radius: 0.9em;
+
+
+    /*
+    tricks for IE9+ background gradient images with rounded borders:
+        ref: http://jjis.me/a/912
+        ref: http://ie.microsoft.com/testdrive/graphics/svggradientbackgroundmaker/default.html
+    */
+    background: transparent none; /* reset the background, just in case */
+    filter: ''; /* clear the filter since it's the reason for the border-radius missing */
+    /* SVG as background image (IE9/Chrome/Safari/Opera) */
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4NTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNEM0QzRDMiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiM3MDcwNzAiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2c4NTYpIiAvPgo8L3N2Zz4=);
 }
 
 .btn-submit:hover {
-    color: #747171;
-    color: #333;
-    color: #363030;
-    
-    border: 1px solid #a0a0a0;
-    border: 2px solid #a0a0a0;
-    border: 2px solid #747171;
-    border: 2px solid #363030;
+    /*color: #363030;*/
+    font-color: #363030;
 
-    background-color: #bababa;
+    border: 2px solid #363030;
+    background-color: transparent;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bababa), color-stop(100%, #575757));
     background-image: -webkit-linear-gradient(top, #bababa, #575757);
     background-image: -moz-linear-gradient(top, #bababa, #575757);
@@ -398,9 +435,12 @@ div.flashnotices p {
     margin: 0 1em;
 }
 
-
-
-
+p.userlist {
+    width: 100%;
+    background-color: transparent;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #453772;
+}
 
 div.signup-text input.btn-submit,
 div.signup-text input.input-signup {
@@ -512,8 +552,6 @@ nav ul.navigation {
 nav ul li {
     width: 20%;
     display: inline-block;
-    
-    border: 1px solid black;
     margin: 3px;
     padding: 3px;
     
@@ -639,19 +677,8 @@ Styles for the Posts pages, mainly the post "bubbles"
     font-weight: bold;
     padding: 1em;
     margin: 0;
-
-    color: #999;
     color: #808080;
     text-align: right;
-    /*border: 1px solid blue;*/
-    /*
-    text-align: right;
-    float: right;
-    */
-    /*background-color: orange;*/
-
-    /*width: 100%;*/
-    /*display: block;*/
 }
 
 p.post-text {
@@ -669,8 +696,6 @@ p.post-text:first-child {
 }
 
 .post-spike {
-    background-color: salmon;
-    background-color: green;
     background-color: transparent;
     height: 50px;
     width: 99%;
@@ -690,26 +715,20 @@ p.post-text:first-child {
 .follow-links {
     display: inline-block;
     background-color: transparent;
-    background-color: red;
     float: right;
 }
 
 form.follow-form {
     margin: 0 auto;
     padding: 5px;
-    background-color: yellow;
     background-color: transparent;
-
     width: 200px;
     height: 1.5em;
     margin-right: 5px;
 }
 
 
-
-
 footer {
-    border: 1px solid red;
     border: none;
     margin: 50px 5px 20px 5px;
     text-align: center;

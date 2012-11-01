@@ -43,7 +43,7 @@ foreach ($all_posts as $key => $post):
     $tokenimage = "<img src=\"/views/images/token-02.png\" class=\"token-icon ".$side."\" alt=\"user: ".htmlspecialchars($post['username']) ."\" title=\"user: ".htmlspecialchars($post['username']) ."\" />\n";
 
     // if the post was made by the currently logged in user, show a different avatar and time string
-    if ($_SESSION['user']['user_id'] == $post['user_id']) {
+    if (@$_SESSION['user']['user_id'] == @$post['user_id']) {
         $timestring = " by <a href=\"/users/profile/". htmlspecialchars($post['username'])."\">me</a></p>\n";
         $tokenimage = "<img src=\"/views/images/token-self.png\" class=\"token-icon ".$side."\" alt=\"user: me\" title=\"user: me\" />\n";
     }
@@ -55,13 +55,6 @@ foreach ($all_posts as $key => $post):
         <p class="post-time">posted on <?=date('l, M. j, Y \a\t g:iA', $post['post_modified']) ?>
         <?=$timestring ?>
 <?php
-
-//    if ($_SESSION['user']['user_id'] != $post['user_id']) {
-//            echo " by <a href=\"/users/profile/". htmlspecialchars($post['username'])."\">". htmlspecialchars($post['username']) ."</a></p>\n";
-//    } else {
-//        echo " by <a href=\"/users/profile/". htmlspecialchars($post['username'])."\">me</a></p>\n";
-//    }
-
 
 // only show follow/unfollow links for other users than the logged-in user
 if (isset($_SESSION['user']['user_id']) &&  $_SESSION['user']['user_id'] != $post['user_id']  ) {
@@ -86,7 +79,6 @@ if (isset($_SESSION['user']['user_id']) &&  $_SESSION['user']['user_id'] != $pos
 ?>
     </div>
     <div class="post-spike post-spike-<?=$side ?>">
-        <!--<img src="/views/images/token-02.png" class="token-icon <?=$side ?>" alt="user: <?=htmlspecialchars($post['username']) ?>" title="user: <?=htmlspecialchars($post['username']) ?>"  />-->
         <?=$tokenimage ?>
     </div>
 </div>
