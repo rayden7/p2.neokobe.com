@@ -24,44 +24,12 @@
                 });
             }
         });
-
-        // //DEBUGGING
-        //for (var key in formIdArr) {
-        //    alert( "key: [" + key + "] value: ["+formIdArr[key]+"]" );
-        //}
-
-        /*
-        $('#frmSignup').submit(function(){
-            $('#frmSignup input').each(function() {
-                // // DEBUGGING
-                //alert("form element\n\nid: ["+$(this).attr('id')+"]\nvalue: [" + $(this).val() + "]\ndefault value entered? ["+( $(this).attr('name') == $(this).val() )+"]" );
-                if ( $(this).attr('name') == $(this).val() ) {
-                    alert("nulling out the value for field ["+$(this).attr('id')+"]")
-                    $(this).val("");
-                }
-            });
-        });
-        */
     });
-
-    /*
-    function verifySignup(){
-        alert("submitting the form");
-
-        // //DEBUGGING
-        for (var key in formIdArr) {
-            alert( "key: [" + key + "] value: ["+formIdArr[key]+"]" );
-        }
-
-        return true;
-    }
-    */
 
 </script>
 
 <h1>Join Us!</h1>
 
-<!--<form id="frmSignup" method="post" action="/users/p_signup" onsubmit="return verifySignup();">-->
 <form id="frmSignup" method="post" action="/users/p_signup">
     <p>It's fast, easy, and <i>free</i> to join!  Just enter your information below and you'll be read to start
         posting in minutes.  You will just need to verify your account by responding to an email we will send to
@@ -72,8 +40,6 @@
     // show any errors that prevented the user signup from going through
     if (isset($_SESSION['signup']['errors'])) {
 
-//        print_r($_SESSION);
-
         $_SESSION['signup']['errors'] = array_unique($_SESSION['signup']['errors']);
 
         echo "<div class=\"form-errors\">\n";
@@ -81,8 +47,6 @@
             echo "<p>".$value."</p>\n";
         }
         echo "\n</div>\n";
-
-        //unset($_SESSION['signup']);
     }
 
 ?>

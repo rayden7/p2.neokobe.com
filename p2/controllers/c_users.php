@@ -7,7 +7,7 @@ class users_controller extends base_controller {
     }
 
     /*-------------------------------------------------------------------------------------------------
-    Access via http://yourapp.com/users/index/
+    Access via http://p2.neokobe.com/users/index/
     -------------------------------------------------------------------------------------------------*/
     public function index() {
 
@@ -26,7 +26,7 @@ class users_controller extends base_controller {
 
         $this->template->client_files = Utils::load_client_files($client_files);
 
-        // just in case the session is still there, kill it off, and the cookie as well
+        # just in case the session is still there, kill it off, and the cookie as well
         setcookie("token", "", strtotime('-1 year'), '/');
 
         # Render the view
@@ -34,10 +34,8 @@ class users_controller extends base_controller {
 
     }
 
-
+    # generic error page for the /users/* section
     public function error($title_error=null) {
-
-        //echo "in the error handler!    \$title_error: [$title_error]";
 
         $this->template->content = View::instance('v_users_error');
 
@@ -56,7 +54,7 @@ class users_controller extends base_controller {
         echo $this->template;
     }
 
-
+    # sign up page for new users
     public function signup() {
 
         # Any method that loads a view will commonly start with this

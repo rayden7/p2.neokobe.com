@@ -20,30 +20,16 @@ textarea {
 
 @font-face {
     font-family: 'Futura-Medium';
-    /*
-    src: url('../fonts/futura.eot');
-    src: url('../fonts/futura.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/futura.woff') format('woff'),
-    url('../fonts/futura.ttf') format('truetype'),
-    url('../fonts/futura.svg#futura') format('svg');
-    */
-
     src: url('http://neokobe.com/fonts/futura.eot');
     src: url('http://neokobe.com/fonts/futura.eot?#iefix') format('embedded-opentype'),
     url('http://neokobe.com/fonts/futura.woff') format('woff'),
     url('http://neokobe.com/fonts/futura.ttf') format('truetype'),
     url('http://neokobe.com/fonts/futura.svg#futura') format('svg');
-
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Hei';
-    /*
-    src: url('../fonts/Hei.ttf');
-    src: local('Hei'), url('../fonts/Hei.ttf') format('truetype');
-    */
-
     src: url('http://neokobe.com/fonts/Hei.ttf');
     src: local('Hei'), url('http://neokobe.com/fonts/Hei.ttf') format('truetype');
 }
@@ -54,14 +40,6 @@ body {
     font-family: Futura-Medium, Hei, "Helvetica Neue", "Helvetica Nue", "Helvetica";
     margin: 0;
     padding: 0;
-
-
-    /*
-    rgb(186,195,255) == #bac3ff
-    rgb(250,250,250) == #fafafa
-    rgb(97,158,250)  == #619efa
-    */
-
     background-image: linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
     background-image: -o-linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
     background-image: -moz-linear-gradient(bottom, rgb(186,195,255) 0%, rgb(250,250,250) 90%, rgb(97,158,250) 100%);
@@ -77,10 +55,8 @@ body {
     );
     background-color: rgb(186,195,255);
 
-
     /*
     background-repeat: no-repeat;
-
     background: #bac3ff; /* Old browsers * /
     /* background gradient for cross-browser compatibility * /
     background: -moz-linear-gradient(top, #bac3ff 0%, #fafafa 90%, #619efa 100%); /* FF3.6+ * /
@@ -93,7 +69,6 @@ body {
     */
 
     /* border radius for cross-compatibility */
-
     /*
     tricks for IE9+ background gradient images with rounded borders:
         ref: http://jjis.me/a/912
@@ -106,9 +81,7 @@ body {
     / * SVG as background image (IE9/Chrome/Safari/Opera) * /
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc5NjgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNCQUMzRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGQUZBRkEiIG9mZnNldD0iMC41Ii8+PHN0b3Agc3RvcC1jb2xvcj0iIzYxOUVGQSIgb2Zmc2V0PSIxIi8+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZzk2OCkiIC8+Cjwvc3ZnPg==);
     */
-
 }
-
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -147,7 +120,6 @@ img {
 /*
  * Remove default fieldset styles.
  */
-
 fieldset {
     border: 0;
     margin: 0;
@@ -157,7 +129,6 @@ fieldset {
 /*
  * Allow only vertical resizing of textareas.
  */
-
 textarea {
     resize: vertical;
 }
@@ -273,11 +244,8 @@ div.signup-text {
     text-align: center;
     height: 1.5em;
     font-size: 1.6em;
-    /*color: #564b4b;*/
-    /*background: #d3d3d3;*/
     font-color: #564b4b;
     padding: 1px 0.75em;
-
 
     border-radius: 0.9em;
     -moz-border-radius: 0.9em;
@@ -319,9 +287,7 @@ div.signup-text {
 }
 
 .btn-submit:hover {
-    /*color: #363030;*/
     font-color: #363030;
-
     border: 2px solid #363030;
     background-color: transparent;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bababa), color-stop(100%, #575757));
@@ -387,24 +353,17 @@ div.signup-text {
     background-image: linear-gradient(top, #f95050, #b62f2f);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f95050, endColorstr=#b62f2f);
 }
 
-
-
 .errortext {
     font-color: #ff0000;
-    color: #ff0000;
     color: #9d1212;
     text-decoration: underline;
     font-weight: bold;
 }
 
 div.errors {
-    border: 2px solid #ec3d44;
     border: 2px solid #9d1212;
-
     background-color: #f56368;
-    color: #ff0000;
     color: #9d1212;
-
     margin: 15px;
     border-radius: 2em;
     padding: 5px;
@@ -420,13 +379,11 @@ div.errors p {
 }
 
 div.flashnotices {
-    border: 2px solid #003416;
-
     background-color: #7cc576;
-    color: #004d21;
-
-    margin: 15px;
+    border: 2px solid #003416;
     border-radius: 2em;
+    color: #004d21;
+    margin: 15px;
     padding: 5px;
     -moz-border-radius: 2em;
     -webkit-border-radius: 2em;
@@ -458,25 +415,12 @@ div.signup-text input.input-signup {
 .btn-submit-wide {
     min-width: 300px;
     width: 100%;
-    /*margin: 5px auto;*/
-    /*font-size: 0.85em;*/
-    /*vertical-align: text-bottom;*/
-    /*padding: 0;*/
-
     padding: 0;
     margin: 0;
-    /*font-size: 1.6em;*/
-
-    /*font-size: 1.6em;*/
-    /*margin: 10px auto;*/
 }
 
 div#application-title {
-    background-color: #3f4fcb;
-    background-color: #3e60c8;
-    background-color: #417cf4;
     background-color: #5e81e9;
-
     text-align: center;
     margin: 0 auto;
     padding: 10px;
@@ -496,9 +440,7 @@ header {
     padding: 5px;
     margin: 0 auto;
     position: relative;    
-    background-color: #3f4fcb;
-    background-color: #417cf4;
-    background-color: #3e60c8;    
+    background-color: #3e60c8;
     border: 0;
     border-bottom: 2px solid black;    
 }
@@ -522,7 +464,6 @@ header div#header-container h1 {
     margin: 0;
     text-shadow: 0px 3px 4px rgba(0,0,0,0.3);
     position: relative;
-    top: -50%;
     top: 10%;
 }
 
@@ -543,11 +484,7 @@ nav ul.navigation {
     margin: 0;
     padding: 5px;
     border: 2px solid #453772;
-    background-color: #9e8ed5;  
-    -webkit-border-radius: 1.75em;
-    -moz-border-radius: 1.75em;
-    border-radius: 1.75em;    
-
+    background-color: #9e8ed5;
     -webkit-border-radius: 3em;
     -moz-border-radius: 3em;
     border-radius: 3em;
@@ -557,28 +494,17 @@ nav ul li {
     width: 20%;
     display: inline-block;
     margin: 3px;
-    padding: 3px;
-    
     border: 2px solid #747171;
-
-    -webkit-border-radius: 0.9em;
-    -moz-border-radius: 0.9em;
-    border-radius: 0.9em;
-
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     font-weight: bold;
     text-align: center;
-    
     font-size: 1em;
-    padding: 2px;
     color: #564b4b;
-    font-color: #999999; 
-
+    font-color: #999999;
     padding: 1px 0.75em;
     border-radius: 0.9em;
     -moz-border-radius: 0.9em;
-    -webkit-border-radius: 0.9em;    
-    
+    -webkit-border-radius: 0.9em;
     background-color: #d3d3d3;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d3d3d3), color-stop(100%, #707070));
     background-image: -webkit-linear-gradient(top, #d3d3d3, #707070);
@@ -590,11 +516,8 @@ nav ul li {
 
 nav ul li:hover {
     color: #363030;
-    
     cursor: pointer;
-    
     border: 2px solid #363030;
-
     background-color: #bababa;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bababa), color-stop(100%, #575757));
     background-image: -webkit-linear-gradient(top, #bababa, #575757);
@@ -626,10 +549,8 @@ article {
     -webkit-border-radius: 3em;
     -moz-border-radius: 3em;
     border-radius: 3em;
-
     background-color: #ccc;    
     text-align: justify;
-
     min-width: 750px;
     width: 50%;
     padding: 0px;
@@ -641,9 +562,6 @@ article div#main-content {
     padding: 15px;
     background: transparent;
 }
-
-
-
 
 /***********************************************************************************************************************
 Styles for the Posts pages, mainly the post "bubbles"
@@ -731,7 +649,6 @@ form.follow-form {
     margin-right: 5px;
 }
 
-
 footer {
     border: none;
     margin: 50px 5px 20px 5px;
@@ -764,7 +681,6 @@ footer {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-
 .hidden {
     display: none !important;
     visibility: hidden;
@@ -773,7 +689,6 @@ footer {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -789,7 +704,6 @@ footer {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
@@ -803,7 +717,6 @@ footer {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-
 .invisible {
     visibility: hidden;
 }
@@ -819,7 +732,6 @@ footer {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
@@ -834,7 +746,6 @@ footer {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-
 .clearfix {
     *zoom: 1;
 }
@@ -883,7 +794,6 @@ footer {
     /*
      * Don't show links for images, or javascript/internal links
      */
-
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {

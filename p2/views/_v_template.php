@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 <head>
@@ -26,8 +26,6 @@
             // enter their values; if they mouse out and have nulled out the values, go back to the defaults
             var default_username = $('#username').val();
             var default_password = $('#password').val();
-
-            //alert('default_username: ['+default_username+']\ndefault_password: ['+default_password+']');
 
             $('#login-form #username').focus(function() {
                 if ($(this).val() == default_username) $(this).val("");
@@ -112,32 +110,6 @@ $navigation .= "</nav>\n";
 
 <?=$navigation ?>
 
-<?php
-
-/*
-<nav>
-    <ul class="navigation">
-<?php
-// if there is no logged-in user, show the link to create a new account
-if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
-    echo "<a href=\"/users/signup\"><li>New Account</li></a>\n";
-}
-// otherwise we have a logged-in user, so show the link to the user list
-else {
-    echo "<a href=\"/users/all\"><li>All Users</li></a>\n";
-}
-?>
-        <a href="/users/profile<?php if (isset($_SESSION['user']['username'])) echo "/".$_SESSION['user']['username'] ?>"><li>Profile</li></a>
-        <a href="/posts/all"><li>All Posts</li></a>
-        <a href="/posts/friends"><li>Friend Posts</li></a>
-        <a href="/posts/mine"><li>My Posts</li></a>
-        <a href="/posts/add"><li>New Post</li></a>
-    </ul>
-</nav>
-*/
-
-?>
-
 <article>
     <div id="main-content">
         <?=$content;?>
@@ -145,32 +117,6 @@ else {
 </article>
 
 <?=$navigation ?>
-
-<?php
-
-/*
-<nav>
-    <ul class="navigation">
-<?php
-// if there is no logged-in user, show the link to create a new account
-if (!isset($_SESSION['user']['username']) && !isset($_COOKIE['token'])) {
-    echo "<a href=\"/users/signup\"><li>New Account</li></a>\n";
-}
-// otherwise we have a logged-in user, so show the link to the user list
-else {
-    echo "<a href=\"/users/all\"><li>All Users</li></a>\n";
-}
-?>
-        <a href="/users/profile<?php if (isset($_SESSION['user']['username'])) echo "/".$_SESSION['user']['username'] ?>"><li>Profile</li></a>
-        <a href="/posts/all"><li>All Posts</li></a>
-        <a href="/posts/friends"><li>Friend Posts</li></a>
-        <a href="/posts/mine"><li>My Posts</li></a>
-        <a href="/posts/add"><li>New Post</li></a>
-    </ul>
-</nav>
-*/
-
-?>
 
 <footer>
     <h3>&copy; 2012 David Killeffer.  All Rights Reserved.</h3>

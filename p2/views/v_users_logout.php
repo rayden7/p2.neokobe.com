@@ -1,18 +1,6 @@
-<!--
-<pre>
-    This is where users would logout of the site
+<h1>Logout Successful</h1>
 
-    Controller: c_users.php
-Method: logout()
-View: v_users_logout.php
-</pre>
--->
-
-
-<h1>p2.neokobe.com</h1>
-
-    <p>You have successfully logged out.</p>
-
+<p>You have successfully logged out.</p>
 
 <ul>
     <li><a href="/users/signup">Create A New Account</a></li>

@@ -11,7 +11,6 @@
 
     <br><br>
 
-    <!--<input type="submit" class="btn-submit hue-green" name="Create Post" title="Create Post" alt="Create Post" id="create_post" />-->
     <input type="submit" class="btn-submit btn-submit-wide hue-green" id="create_post" value="Create Post"/>
 
 </form>

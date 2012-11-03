@@ -21,10 +21,3 @@ else {
     echo "<p>Please use the login form at the top of the page.</p>\n";
 }
 ?>
-
-<!--<p>Please use the login form at the top of the page.</p>-->
-
-<?php
-//unset($_SESSION['signup']);
-//unset($_SESSION['users']);
-?>

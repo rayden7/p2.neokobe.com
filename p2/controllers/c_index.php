@@ -7,7 +7,10 @@ class index_controller extends base_controller {
 	} 
 	
 	/*-------------------------------------------------------------------------------------------------
-	Access via http://yourapp.com/index/index/
+	Access via:
+	 - http://p2.neokobe.com/
+	 - http://p2.neokobe.com/index
+	 - http://p2.neokobe.com/index/index/
 	-------------------------------------------------------------------------------------------------*/
 	public function index() {
 		
